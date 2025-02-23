@@ -272,6 +272,6 @@ tasks:
 pluginDefaults:
   - type: io.kestra.plugin.jdbc.postgresql
     values:
-      url: jdbc:postgresql://kestra-metadata:5432/kestra  # Correct Postgres service URL for Kestra
-      username: kestra  # Username as defined in Docker Compose for the metadata DB
-      password: k3str4  # Password as defined in Docker Compose for the metadata DB
+      url: jdbc:postgresql://postgres:5432/nyc_taxi  # Connect to the PostgreSQL container and database
+      username: postgres
+      password: postgres
