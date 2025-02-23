@@ -48,3 +48,6 @@ curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/07_g
 
 ## ETL Pipelines in Kestra
 a simple data pipeline which extracts data via HTTP REST API, transforms that data in Python and then queries it using DuckDB.
+
+## Update yaml to define a Docker Compose setup for multi-service application, including Kestra, PostgreSQL and pgAdmin. 
+Modefied pluginDefaults on scripts to kestra-meta because we are connecting from Kestra container.
