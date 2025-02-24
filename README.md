@@ -85,3 +85,9 @@ Load the same Yellow and Green Taxi data to Google Cloud Platform (GCP) using: G
 
 ## 7. Use dbt with BigQuery in Kestra:
 - Set up dbt workflow in Kestra.
+
+## 8. Deploy Kestra to the cloud using Google Cloud & use git sync plugin:
+- Use compute engine to run Kestra or Postgres.
+- Use GitHub action to synchronize data. 
+- push task: push flows and namespace files in local environment. 
+- sync task: sync those flows from our git repo to Kestra in production instance.
