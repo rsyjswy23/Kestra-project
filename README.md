@@ -81,3 +81,4 @@ Load the same Yellow and Green Taxi data to Google Cloud Platform (GCP) using: G
 - Use BigQuery to create tables, merge data to final table.
 - Use BigQuery to process data and run query. 
 - With cloud, we can work on bigger datasets. 
+- Use trigger to Schedule & Backfill to upload data to GCS for BigQuery to use.
