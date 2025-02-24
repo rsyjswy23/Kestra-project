@@ -59,12 +59,24 @@ curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/02_p
 
 ## 5. Use dbt in Kestra to transform data after load to table:
 - Set up dbt workflows in Kestra.
-- After load to database, use dbt to transform data in a good format.
-- config file setting:
+- After raw data ingested to local postgres database, use dbt to transform data in a good format.
+- Update config file setting:
 ```bash
 dev:
     type: postgres
     host: host.docker.internal
-    user: postgres
-    port: 5432
 ```
+- The flow syncs the dbt models from Git to Kestra and run the `dbt build`.
+```mermaid
+graph LR
+  Start[Select dbt command] --> Sync[Sync Namespace Files]
+  Sync --> DbtBuild[Run dbt CLI]
+```
+
+## 6. Move ETL pipeline in Kestra to Google Cloud Platform using GCS and BigQuery:
+Load the same Yellow and Green Taxi data to Google Cloud Platform (GCP) using: Google Cloud Storage (GCS) as a data lake and BigQuery as a data warehouse.
+- Set up Google Cloud: service account, projectID, local region and bucket. 
+- Create GCP store key value to Kestra as KV store.
+- Upload CSV file to data lake: Google Cloud Storage.
+- Use BigQuery to create table, process data and run query. 
+- With Gloud, we can work on bigger datasets.
