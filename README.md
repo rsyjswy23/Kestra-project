@@ -83,6 +83,25 @@ Load the same Yellow and Green Taxi data to Google Cloud Platform (GCP) using: G
 - With cloud, we can work on bigger datasets. 
 - Use trigger to Schedule & Backfill to upload data to GCS for BigQuery to use.
 
+```mermaid
+graph LR
+  SetLabel[Set Labels] --> Extract[Extract CSV Data]
+  Extract --> UploadToGCS[Upload Data to GCS]
+  UploadToGCS -->|Taxi=Yellow| BQYellowTripdata[Main Yellow Tripdata Table]:::yellow
+  UploadToGCS -->|Taxi=Green| BQGreenTripdata[Main Green Tripdata Table]:::green
+  BQYellowTripdata --> BQYellowTableExt[External Table]:::yellow
+  BQGreenTripdata --> BQGreenTableExt[External Table]:::green
+  BQYellowTableExt --> BQYellowTableTmp[Monthly Table]:::yellow
+  BQGreenTableExt --> BQGreenTableTmp[Monthly Table]:::green
+  BQYellowTableTmp --> BQYellowMerge[Merge to Main Table]:::yellow
+  BQGreenTableTmp --> BQGreenMerge[Merge to Main Table]:::green
+  BQYellowMerge --> PurgeFiles[Purge Files]
+  BQGreenMerge --> PurgeFiles[Purge Files]
+
+  classDef yellow fill:#FFD700,stroke:#000,stroke-width:1px;
+  classDef green fill:#32CD32,stroke:#000,stroke-width:1px;
+```
+
 ## 7. Use dbt with BigQuery in Kestra:
 - Set up dbt workflow in Kestra.
 
