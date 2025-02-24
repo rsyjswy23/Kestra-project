@@ -78,5 +78,6 @@ Load the same Yellow and Green Taxi data to Google Cloud Platform (GCP) using: G
 - Set up Google Cloud: service account, projectID, local region and bucket. 
 - Create GCP store key value to Kestra as KV store.
 - Upload CSV file to data lake: Google Cloud Storage.
-- Use BigQuery to create table, process data and run query. 
-- With Gloud, we can work on bigger datasets.
+- Use BigQuery to create tables, merge data to final table.
+- Use BigQuery to process data and run query. 
+- With cloud, we can work on bigger datasets. 
